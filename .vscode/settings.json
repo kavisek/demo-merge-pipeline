@@ -1,0 +1,52 @@
+{
+
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#91835A",
+    "titleBar.activeBackground": "#91835A",
+    "titleBar.activeForeground": "#FDFBF9"
+  }
+  // Python Settings
+  "python.pythonPath": "/Users/kavi/workspaces/template-workspace/app/.venv/bin/python",
+  "python.venvPath": "Users/kavi/Library/Caches/pypoetry/virtualenvs/",
+  "python.terminal.activateEnvironment": true,
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=88"],
+  "python.sortImports.path": "isort",
+  "python.sortImports.args":["--profile=black", ],
+
+  // Python Testing
+  "python.testing.unittestEnabled": false,
+  "python.testing.nosetestsEnabled": false,
+  "python.testing.pytestEnabled": true,
+  // Do not use the following flags use the launch.json "cwd" setting and the pytest.init file.
+  // "python.testing.cwd":
+  // "python.testing.pytestArgs":
+
+
+  // CSV Preview Settings
+  "csv-preview.numberFormat": "g7",
+
+  // Python Custom Settings
+  "[python]": {
+    "editor.rulers": [88],
+    "editor.formatOnSave":true,
+    "editor.codeActionsOnSave":{
+     "source.organizeImports.python": true
+  },
+
+  // SQL Custom Settings
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+
+  // YAML Settings
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+  },
+  "restructuredtext.languageServer.disabled": true
+}

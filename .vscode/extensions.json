@@ -1,0 +1,26 @@
+{
+	"recommendations": [
+        "ms-python.python",
+        "grapecity.gc-excelviewer",
+        "almenon.arepl",
+        "akamud.vscode-theme-onedark",
+        "ms-vscode.azure-account",
+        "ms-azuretools.vscode-azureterraform",
+        "formulahendry.code-runner",
+        "paiqo.databricks-vscode",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "hashicorp.terraform",
+        "ms-toolsai.jupyter",
+        "technosophos.vscode-make",
+        "shd101wyy.markdown-preview-enhanced",
+        "davidanson.vscode-markdownlint",
+        "taoklerks.poor-mans-t-sql-formatter-vscode",
+        "searking.preview-vscode",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml",
+        "tomoki1207.pdf",
+        "njpwerner.autodocstring",
+        "stuart.unique-window-colors"
+	]
+}

@@ -1,0 +1,73 @@
+version: "3.8"
+
+services:
+
+
+  generator-service:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    entrypoint: /bin/bash
+    command: crontab.sh
+    environment:
+      SHELL: /bin/bash 
+    depends_on:
+      - migration_service
+    networks:
+      - network
+    profiles:
+      - db
+    
+    
+
+  migration-service:
+    build:
+      context: ./database
+      dockerfile: Dockerfile.flyway
+    entrypoint: flyway
+    command: migrate
+    depends_on:
+      - db
+    environment:
+      FLYWAY_URL: jdbc:postgresql://db:5432/demo # jdbc:postgresql://[host]:[port]/[database]
+      FLYWAY_USER: postgres
+      FLYWAY_PASSWORD: docker
+      FLYWAY_CONNECT_RETRIES: 100
+    volumes:
+      - ./database/scripts:/flyway/scripts
+      - ./database/migrations:/flyway/sql
+      - ./database/conf:/flyway/conf
+    networks:
+      - network
+    profiles:
+      - db
+
+  db:
+    container_name: demo-merge-pipeline-db-1
+    build:
+        context: ./database
+        dockerfile: Dockerfile.postgres
+    command: postgres -c shared_preload_libraries=pg_stat_statements -c pg_stat_statements.track=all -c max_connections=400
+    restart: always
+    environment:
+      POSTGRES_DB: demo
+      POSTGRES_SCHEMA: demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    ports:
+      - 5432:5432
+    networks:
+      - network
+    volumes:
+      - db:/var/lib/mysql
+    profiles:
+      - db
+
+volumes:
+  db:
+    driver: local
+  
+# A local docker network.
+networks:
+  network:
+    driver: bridge
