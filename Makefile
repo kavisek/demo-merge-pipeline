@@ -15,6 +15,4 @@ shutdown_volumes:
 
 startup: shutdown
 	docker compose --profile db up
-
-
 	
