@@ -13,7 +13,7 @@ make start
 - a simple crontab scheduler
 - configParser stores the configuration details
 
-## Local Datbase Credentials
+## Local Database Credentials
 
 host: localhost  
 port: 5432  
