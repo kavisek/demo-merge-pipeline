@@ -1,9 +1,9 @@
 # demo-merge-pipeline
 
-This is a demo project to show how to merge statements in postgres.
+This is a demo project to show how to merge data in postgres. The project is a simple python script that merges data from two tables. The script is scheduled to run every minute.
 
 ```bash
-make startup
+make start
 ```
 
 ## Overview
@@ -18,7 +18,7 @@ make startup
 host: localhost  
 port: 5432  
 username: postgres  
-password; docker  
+password: docker  
 
 # References
 
