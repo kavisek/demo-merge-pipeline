@@ -1,4 +1,4 @@
-create table if not exists demo.grade
+create table if not exists public.grade
 (
 	id bigint,
 	last_modified timestamp,
@@ -6,7 +6,7 @@ create table if not exists demo.grade
 	grade bigint
 );
 
-alter table demo.grade owner to postgres;
+alter table public.grade owner to postgres;
 
 create unique index if not exists grade_id_uindex
-	on demo.grade (id);
+	on public.grade (id);

@@ -13,6 +13,11 @@ shutdown:
 shutdown_volumes:
 	docker-compose down -v
 
-startup: shutdown
+start: shutdown
 	docker compose --profile db up
 	
+
+# DOCKER COMMANDS
+
+exec:
+	docker exec -it generator_service /bin/bash

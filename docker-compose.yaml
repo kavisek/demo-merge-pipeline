@@ -1,9 +1,8 @@
 version: "3.8"
 
 services:
-
-
   generator-service:
+    container_name: generator_service
     build:
       context: ./app
       dockerfile: Dockerfile
@@ -12,15 +11,15 @@ services:
     environment:
       SHELL: /bin/bash 
     depends_on:
-      - migration_service
+      - migration-service
     networks:
       - network
     profiles:
       - db
     
-    
 
   migration-service:
+    container_name: migration_service
     build:
       context: ./database
       dockerfile: Dockerfile.flyway
@@ -29,7 +28,7 @@ services:
     depends_on:
       - db
     environment:
-      FLYWAY_URL: jdbc:postgresql://db:5432/demo # jdbc:postgresql://[host]:[port]/[database]
+      FLYWAY_URL: jdbc:postgresql://db:5432/postgres
       FLYWAY_USER: postgres
       FLYWAY_PASSWORD: docker
       FLYWAY_CONNECT_RETRIES: 100
@@ -43,7 +42,7 @@ services:
       - db
 
   db:
-    container_name: demo-merge-pipeline-db-1
+    container_name: postgres
     build:
         context: ./database
         dockerfile: Dockerfile.postgres
